@@ -1,0 +1,24 @@
+﻿<div>
+    <h4>ALL Repository</h4>
+    <input type="text" placeholder="Search Repository..." class="form-control" ng-model="git_search_repository" />
+    <table class="table table-hover" width="100%" style="margin-top:15px">
+        <tr ng-hide="loading">
+            <th>Repository</th>
+            <th>Clone</th>
+            <th>To Repository</th>
+        </tr>
+        
+        <tr ng-hide="loading" ng-repeat="x in filterCreate = ( repo_list | filter : { name : git_search_repository} | limitTo:itemsPerPage:itemsPerPage*(currentPage-1) )">
+            <td>{{x.name}}</td>
+            <td><a href="https://codeload.github.com/{{x.full_name}}/zip/master" download>Clone</a></td>
+            <td><a ng-click="to_file(x.full_name)" title="Go to {{x.name}} repository"><img src="https://visualpharm.com/assets/164/Repository-595b40b75ba036ed117d9bbd.svg" style="height:32px;cursor:pointer" alt="github, circle, mascot, git icon" /></a></td>
+        </tr>
+        <tr ng-show="loading"><td><img src="https://thumbs.gfycat.com/NextDefenselessHornbill-small.gif" alt="Alternate Text" /></td></tr>
+        <tfooter ng-hide="loading">
+            <td colspan="100%">
+                <ul uib-pagination boundary-links="true" total-items="filterCreate.length" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" items-per-page="itemsPerPage" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" max-size="5"></ul>
+                <pre>Page: {{currentPage}} / {{round(filterCreate.length/itemsPerPage)}}</pre>
+            </td>
+        </tfooter>
+    </table>
+</div>

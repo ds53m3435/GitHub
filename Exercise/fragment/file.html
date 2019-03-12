@@ -1,0 +1,30 @@
+﻿<div>
+    <h4>Repository {{repository_now}}</h4>
+    <input type="text" placeholder="Search File/Folder..." class="form-control" ng-model="git_search_file" />
+    <table class="table table-hover" width="100%" style="margin-top:15px">
+        <tr ng-hide="loading">
+            <th>File/Folder</th>
+            <th>Download/Go to Folder</th>
+        </tr>
+        <tr ng-show="stack.length>0">
+            <td colspan="100%">
+            <div align="left">
+                <a ng-click="deeppath('back',false)"><img src="https://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/back-512.png"  style="height:30px;cursor:pointer"  alt="Alternate Text" /></a>
+            </div>
+               
+            </td>
+        </tr>
+        <tr ng-repeat="x in filterCreate = ( file_list | filter : {name : git_search_file} )" ng-hide="loading">
+            <td>
+                <img ng-show="x.download_url == null" src="http://simpleicon.com/wp-content/uploads/folder-2.png" style="height:32px;margin-left:20px;cursor:pointer" />
+                <img ng-show="x.download_url != null" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0Dh4SF4yTpimriHU4r3_TzVT6l23VQCLRyZqyt_t-KvSCvnX" style="height:32px;margin-left:20px;cursor:pointer" />
+                {{x.name}}
+            </td>
+            <td>
+                <a ng-show="x.download_url != null" href="{{x.download_url}}" download>Download</a>
+                <a ng-show="x.download_url == null" href="" ng-click="deeppath(x._links.self,true)">Go Folder</a>
+            </td>
+        </tr>
+        <tr ng-show="loading"><td><img src="https://thumbs.gfycat.com/NextDefenselessHornbill-small.gif" alt="Alternate Text" /></td></tr>
+    </table>
+</div>

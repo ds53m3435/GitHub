@@ -1,0 +1,17 @@
+﻿<div>
+    <h4>Account of GitHub</h4>
+    <input type="text" placeholder="Account Git" class="form-control" ng-model="git_search_user" ng-change="search_by_change(this)"/>
+    <table class="table table-hover" width="100%" style="margin-top:15px">
+        <tr ng-hide="loading">
+            <th>Avatar</th>
+            <th>Account</th>
+            <th>Visit</th>
+        </tr>
+        <tr ng-repeat="x in account_list | limitTo:20" ng-hide="loading">
+            <td><img src="{{x.avatar_url}}" alt="Alternate Text" style="height:35px"/></td>
+            <td>{{x.login}}</td>
+            <td><a ng-click="to_repo(x.login)"  title="Go to account"><img src="https://www.freeiconspng.com/uploads/github-circle-mascot-git-icon-6.png" style="height:32px;cursor:pointer" alt="github, circle, mascot, git icon" /></a></td>
+        </tr>
+        <tr ng-show="loading"><td><img src="https://thumbs.gfycat.com/NextDefenselessHornbill-small.gif" alt="Alternate Text" /></td></tr>
+    </table>
+</div>

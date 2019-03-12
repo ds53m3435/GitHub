@@ -1,0 +1,8 @@
+D:\Work\DotNet\Exercise\Exercise\bin\Exercise.dll.config
+D:\Work\DotNet\Exercise\Exercise\bin\Exercise.dll
+D:\Work\DotNet\Exercise\Exercise\bin\Exercise.pdb
+D:\Work\DotNet\Exercise\Exercise\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Work\DotNet\Exercise\Exercise\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Work\DotNet\Exercise\Exercise\obj\Debug\Exercise.csproj.CoreCompileInputs.cache
+D:\Work\DotNet\Exercise\Exercise\obj\Debug\Exercise.dll
+D:\Work\DotNet\Exercise\Exercise\obj\Debug\Exercise.pdb
